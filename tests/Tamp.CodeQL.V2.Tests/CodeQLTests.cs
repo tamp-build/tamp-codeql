@@ -440,12 +440,12 @@ public sealed class CodeQLTests
     [Fact]
     public void Null_Configurer_Throws_For_Required_Verbs()
     {
-        Assert.Throws<ArgumentNullException>(() => CodeQL.Database.Create(FakeTool(), null!));
-        Assert.Throws<ArgumentNullException>(() => CodeQL.Database.Analyze(FakeTool(), null!));
-        Assert.Throws<ArgumentNullException>(() => CodeQL.GitHub.UploadResults(FakeTool(), null!));
-        Assert.Throws<ArgumentNullException>(() => CodeQL.Resolve.Queries(FakeTool(), null!));
-        Assert.Throws<ArgumentNullException>(() => CodeQL.Pack.Download(FakeTool(), null!));
-        Assert.Throws<ArgumentNullException>(() => CodeQL.Query.Run(FakeTool(), null!));
+        Assert.Throws<ArgumentNullException>(() => CodeQL.Database.Create(FakeTool(), (Action<CodeQLDatabaseCreateSettings>)null!));
+        Assert.Throws<ArgumentNullException>(() => CodeQL.Database.Analyze(FakeTool(), (Action<CodeQLDatabaseAnalyzeSettings>)null!));
+        Assert.Throws<ArgumentNullException>(() => CodeQL.GitHub.UploadResults(FakeTool(), (Action<CodeQLGitHubUploadResultsSettings>)null!));
+        Assert.Throws<ArgumentNullException>(() => CodeQL.Resolve.Queries(FakeTool(), (Action<CodeQLResolveQueriesSettings>)null!));
+        Assert.Throws<ArgumentNullException>(() => CodeQL.Pack.Download(FakeTool(), (Action<CodeQLPackDownloadSettings>)null!));
+        Assert.Throws<ArgumentNullException>(() => CodeQL.Query.Run(FakeTool(), (Action<CodeQLQueryRunSettings>)null!));
     }
 
     [Fact]
