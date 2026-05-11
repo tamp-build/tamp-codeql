@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>Tamp.CodeQL.V2</RootNamespace>
+    <AssemblyName>Tamp.CodeQL.V2</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package">
+    <PackageId>Tamp.CodeQL.V2</PackageId>
+    <Description>Tamp wrapper for the CodeQL 2.x CLI — database create/init/analyze/finalize/trace-command/upgrade/export-diagnostics/bundle, github upload-results (PAT via --github-auth-stdin), resolve, pack, query. GitHub PAT typed as Secret.</Description>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(TampCorePath)" Condition="'$(TampCoreMode)' == 'project'" />
+    <PackageReference Include="Tamp.Core" Condition="'$(TampCoreMode)' == 'package'" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
