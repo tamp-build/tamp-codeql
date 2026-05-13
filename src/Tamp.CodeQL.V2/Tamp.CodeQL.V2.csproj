@@ -10,7 +10,12 @@
     <PackageId>Tamp.CodeQL.V2</PackageId>
     <Description>Tamp wrapper for the CodeQL 2.x CLI — database create/init/analyze/finalize/trace-command/upgrade/export-diagnostics/bundle, github upload-results (PAT via --github-auth-stdin), resolve, pack, query. GitHub PAT typed as Secret.</Description>
     <IsPackable>true</IsPackable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="$(TampCorePath)" Condition="'$(TampCoreMode)' == 'project'" />
